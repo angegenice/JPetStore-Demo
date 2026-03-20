@@ -9,11 +9,16 @@ class IndexPage(BasePage):
         self.signIn_btn = (By.XPATH,"//a[text()='Sign In']")
         self.SignUp_btn = (By.XPATH,"//a[text()='Sign Up']")
         self.search_text = (By.XPATH,"//input[@type='search']")
-        self.search_btn = (By.XPATH,"//button[@type='button']")
+        self.search_btn = (By.ID,"jpetstore-search-btn")
 
     def JP_Enter_SignIn(self):
         """进入登录界面"""
         self.find_el(self.signIn_btn).click()
+    
+    def JP_Search(self,text):
+        """主页搜索"""
+        self.input_text(self.find_el(self.search_text),text)
+        self.find_el(self.search_btn).click()
 
 
 
